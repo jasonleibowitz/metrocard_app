@@ -15,3 +15,4 @@ gem 'pry-rails'
 gem 'httparty'
 gem 'figaro'
 ruby '2.1.0'
+gem 'rails_12factor', group: :production
