@@ -28,3 +28,4 @@ gem 'spring',        group: :development
 gem 'pry-rails'
 gem 'httparty'
 gem 'figaro'
+ruby '2.1.0'
