@@ -5,9 +5,9 @@ class Metrocard
     @days_in_weekend = 30 - @days_in_week
     @subway_rides = (weekday.to_i * @days_in_week) + (weekend.to_i * @days_in_weekend)
     if @subway_rides >= 48
-      return {text: "You should buy a 30-days metrocard. You will end up using on average #{@subway_rides} rides.", status: "true"}
+      return {text: "You should buy a 30-days metrocard. You will end up using on average #{@subway_rides} rides, which means you would save about $#{(@subway_rides - 48) * 2.5}.", status: "true"}
     else
-      return { text: "Do not buy a 30-day metrocard. You will only use #{@subway_rides} rides.", status: "false"}
+      return { text: "Do not buy a 30-day metrocard. You will only use #{@subway_rides} rides. You will save $#{112 - (@subway_rides * 2.5)} by paying only for the rides you need.", status: "false"}
     end
   end
 
