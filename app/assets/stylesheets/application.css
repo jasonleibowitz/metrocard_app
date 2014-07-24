@@ -14,6 +14,25 @@
  *= require_self
  */
 
-#part-2, #part-3 {
+#part-2, #part-3, .loading {
   visibility: hidden;
+}
+
+#part-1, #part-2, #part-3, .answer {
+  padding-top: 30px;
+}
+
+.loading {
+  padding-top: 80px;
+}
+
+.wrapper {
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  height: 378px;
+  margin-top: 100px;
+}
+
+.red {
+  background: red;
 }

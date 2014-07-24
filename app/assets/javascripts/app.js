@@ -35,10 +35,15 @@ function partThree(){
 }
 
 function calculate(){
+  $('.loading').css('visibility', 'visible');
   $.getJSON( "metrocard", { weekday: weekday, weekend: weekend })
   .done(function(json){
     console.log("JSON Data: " + json.text);
+    $('.loading').css('visibility', 'hidden');
     $('.answer').append(json.text);
     $('.answer').append("<br /><br /><button id='restart'>Start Again</button>");
+    $('button#restart').click(function(){
+      location.reload();
+    });
   });
 }
