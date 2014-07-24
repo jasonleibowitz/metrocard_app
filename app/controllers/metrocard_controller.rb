@@ -1,11 +1,12 @@
 class MetrocardController < ApplicationController
 
   def index
-    @weekday = params[:weekday]
-    @weekend = params[:weekend]
+    @weekday = params[:weekday].to_i
+    @weekend = params[:weekend].to_i
     respond_to do |format|
+      binding.pry
       format.html { render text: params.inspect }
-      format.json { render text: Metrocard.calculate(@weekday, @weekend).to_json }
+      format.json { render json: Metrocard.calculate(@weekday, @weekend).to_json }
     end
   end
 

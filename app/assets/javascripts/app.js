@@ -12,6 +12,8 @@ $( document ).ready(function() {
 
     $('#weekend-submit').click(partThree);
 
+    $('#restart').click(refresh);
+
 
 });
 
@@ -32,6 +34,10 @@ function partThree(){
   console.log(weekend);
   $('#part-3').remove();
   calculate();
+}
+
+function refresh(){
+  location.reload();
 }
 
 function calculate(){

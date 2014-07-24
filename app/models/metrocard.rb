@@ -1,14 +1,16 @@
 class Metrocard
 
   def self.calculate(weekday, weekend)
-    @days_in_week = HTTParty.get("http://api.wolframalpha.com/v2/query?input=how+many+weekdays+in+the+next+30+days&appid=VRJQG6-9KT48V8X8E")["queryresult"]["pod"][1]["subpod"]["plaintext"].to_i
-    @days_in_weekend = 30 - @days_in_week
-    @subway_rides = (weekday.to_i * @days_in_week) + (weekend.to_i * @days_in_weekend)
+    @weekdays = Wolframalpha.calculate_weekdays_in_next_thirty_days
+    @weekend_days = 30 - @weekdays
+    @subway_rides = (weekday * @weekdays) + (weekend * @weekend_days)
     if @subway_rides >= 48
-      return {text: "You should buy a 30-days metrocard. You will end up using on average #{@subway_rides} rides, which means you would save about $#{(@subway_rides - 48) * 2.5}.", status: "true"}
+      return true
     else
-      return { text: "Do not buy a 30-day metrocard. You will only use #{@subway_rides} rides. You will save $#{112 - (@subway_rides * 2.5)} by paying only for the rides you need.", status: "false"}
+      return false
     end
   end
 
 end
+
+
