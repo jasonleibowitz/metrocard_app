@@ -33,6 +33,7 @@
   margin-top: 100px;
 }
 
-.red {
-  background: red;
+.copyright {
+  text-align: right;
+  margin-top: 50px;
 }
